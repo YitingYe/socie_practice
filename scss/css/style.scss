@@ -48,13 +48,20 @@ h5 {
     font-size: 1.6rem;
     color: #333;
     letter-spacing: 3px;
-    font-weight: 450;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 3px;
 }
 
 h6 {
     font-size: 1.2rem;
     color: #0d96ed;
-    font-weight: 400;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+.clearfix {
+    overflow: auto;
 }
 
 .theme {
@@ -213,6 +220,7 @@ p {
 }
 
 .gift {
+    position: relative;
     border-radius: 30px;
     color: #f13252;
     padding: 20px 30px;
@@ -225,18 +233,17 @@ p {
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffe9f0', endColorstr='#fff1f5', GradientType=1);
     /* IE6-9 fallback on horizontal gradient */
-    .rose-intro{
-        position: relative;
+    .rose-intro {
 
-        &::after{
+        &::after {
             content: "";
-            background:  url("../../img/hand01.png") no-repeat;
+            background: url("../../img/hand01.png") no-repeat;
             background-size: contain;
             position: absolute;
-            width: 300px;
+            width: 340px;
             height: 200px;
-            top: 80px;
-            left: 180px;
+            top: 100px;
+            left: 300px;
         }
     }
 
@@ -245,16 +252,87 @@ p {
         font-size: 0.8rem;
     }
 
-    .rose-logo{
+    .gift-bg {
+        margin-top: 100px;
+        width: 180px;
+    }
+
+    .img-note>p {
+        position: relative;
+        border-radius: 43px;
+        color: #ff3271;
+        padding: 10px 20px;
+        position: absolute;
+        right: 350px;
+        bottom: 30px;
+        line-height: 1.5;
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+        }
+
+        &::before {
+            border-radius: 43px;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f98aae+0,ffffff+100 */
+            background: #f98aae;
+            /* Old browsers */
+            background: -moz-linear-gradient(-45deg, #f98aae 0%, #ffffff 100%);
+            /* FF3.6-15 */
+            background: -webkit-linear-gradient(-45deg, #f98aae 0%, #ffffff 100%);
+            /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(135deg, #f98aae 0%, #ffffff 100%);
+            /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f98aae', endColorstr='#ffffff', GradientType=1);
+            /* IE6-9 fallback on horizontal gradient */
+            z-index: -2;
+        }
+
+        &::after {
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            border-radius: 43px;
+            background: #fff;
+            z-index: -1;
+        }
+    }
+
+
+    .rose-logo {
         width: 10%;
-        float: right;
+        position: absolute;
+        right: 40px;
+        top: 30px;
+
+        &::before {
+            content: "";
+            background: url("../../img/hand02.png") no-repeat;
+            background-size: contain;
+            position: absolute;
+            width: 380px;
+            height: 400px;
+            top: 0px;
+            right: 30px;
+        }
     }
 }
 
+.classes {
+    margin-top: 100px;
+}
+
 .col-class {
-    margin: 20px 0;
+    margin: 30px 0;
 
     .class-photo {
+        float: left;
         display: inline-block;
         border-radius: 50%;
         width: 250px;
@@ -268,25 +346,73 @@ p {
     }
     .class-intro {
         display: inline-block;
-        .price1,
-        .price2 {
-            font-weight: 300;
-            font-size: 0.8rem;
-            display: inline-block;
-            padding-right: 20px;
-            span {
-                font-size: 1.4rem;
-                color: #0d96ed;
-                font-weight: 400;
+        color: #555;
+
+        ul {
+            li {
+                list-style-type: none;
+                background: url("../../img/icon.svg") no-repeat;
+                background-size: 20px 20px;
+                padding-left: 30px;
+                line-height: 1.5;
             }
         }
 
-        a {
+        .row {
+            padding-top: 40px;
+            height: 1px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .col-b {
+            flex: 0 0 75%;
+            max-width: 75%;
+        }
+
+        .col {
+            -ms-flex-preferred-size: 0;
+            flex-basis: 0;
+            -ms-flex-positive: 1;
+            flex-grow: 1;
+            max-width: 100%;
+        }
+
+        .price {
+            width: 75%;
             display: inline-block;
-            padding: 10px 30px;
+            float: left;
+            font-size: 0.9rem;
+
+
+            .price1,
+            .price2 {
+                font-weight: 300;
+                display: inline-block;
+                span {
+                    font-size: 1.4rem;
+                    color: #0d96ed;
+                    font-weight: 400;
+                }
+            }
+        }
+
+        .order-btn {
+            width: 25%;
+            display: inline-block;
+            float: left;
+            box-shadow: 0 0 0 5px #fff300;
             background-color: #fff300;
-            color: #0d96ed;
+            border: 1px solid white;
+            width: 160px;
+            height: 32px;
             text-align: center;
+        }
+
+
+        a {
+            color: #0d96ed;
+            line-height: 32px;
         }
     }
 }
